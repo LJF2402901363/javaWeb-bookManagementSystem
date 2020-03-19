@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="javaweb-booksystem:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/javaweb_booksystem_war</output-path>
+    <root id="archive" name="javaweb_war.war">
+      <element id="artifact" artifact-name="javaweb:war exploded" />
+      <element id="dir-copy" path="$PROJECT_DIR$/src/main/webapp" />
+    </root>
+  </artifact>
+</component>

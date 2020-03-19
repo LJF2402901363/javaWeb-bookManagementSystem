@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="javaweb" default="all">
+  
+  
+  <property file="javaweb.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.egg"/>
+    <include name="*.jar"/>
+    <include name="*.ear"/>
+    <include name="*.klib"/>
+    <include name="*.swc"/>
+    <include name="*.war"/>
+    <include name="*.zip"/>
+    <include name="*.ane"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
+  <path id="jdk.classpath.1.8">
+    <fileset dir="${jdk.home.1.8}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/ext/access-bridge-64.jar"/>
+      <include name="jre/lib/ext/cldrdata.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/jaccess.jar"/>
+      <include name="jre/lib/ext/jfxrt.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/nashorn.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunmscapi.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jfr.jar"/>
+      <include name="jre/lib/jfxswt.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.8}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.java_ee_6-java_ee_6.classpath">
+    <pathelement location="${basedir}/lib/javax.annotation.jar"/>
+    <pathelement location="${basedir}/lib/javax.ejb.jar"/>
+    <pathelement location="${basedir}/lib/javax.jms.jar"/>
+    <pathelement location="${basedir}/lib/javax.persistence.jar"/>
+    <pathelement location="${basedir}/lib/javax.resource.jar"/>
+    <pathelement location="${basedir}/lib/javax.servlet.jar"/>
+    <pathelement location="${basedir}/lib/javax.servlet.jsp.jar"/>
+    <pathelement location="${basedir}/lib/javax.servlet.jsp.jstl.jar"/>
+    <pathelement location="${basedir}/lib/javax.transaction.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.alibaba:druid:1.1.21.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/alibaba/druid/1.1.21/druid-1.1.21.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.google.protobuf:protobuf-java:3.6.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/google/protobuf/protobuf-java/3.6.1/protobuf-java-3.6.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.sun.mail:javax.mail:1.6.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/sun/mail/javax.mail/1.6.2/javax.mail-1.6.2.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.activation:activation:1.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/javax/activation/activation/1.1/activation-1.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.servlet.jsp.jstl:jstl:1.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/javax/servlet/jsp/jstl/jstl/1.2/jstl-1.2.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax:javaee-api:8.0.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/javax/javaee-api/8.0.1/javaee-api-8.0.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_junit:junit:4.13.classpath">
+    <pathelement location="${path.variable.maven_repository}/junit/junit/4.13/junit-4.13.jar"/>
+  </path>
+  
+  <path id="library.maven:_mysql:mysql-connector-java:8.0.18.classpath">
+    <pathelement location="${path.variable.maven_repository}/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar"/>
+  </path>
+  
+  
+  <!-- Application Server Libraries -->
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <fileset dir="${javac2.home}">
+      <include name="javac2.jar"/>
+      <include name="jdom.jar"/>
+      <include name="asm-all*.jar"/>
+      <include name="forms-*.jar"/>
+    </fileset>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  <import file="${basedir}/module_javaweb.xml"/>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.javaweb, clean.artifact.javaweb:war_exploded" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.javaweb" description="build all modules"/>
+  
+  <target name="init.artifacts">
+    <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
+    <property name="artifact.output.javaweb:war" value="${basedir}/target"/>
+    <property name="artifact.output.javaweb:war_exploded" value="${basedir}/target/book-system"/>
+    <mkdir dir="${artifacts.temp.dir}"/>
+    <property name="temp.jar.path.book-system.war" value="${artifacts.temp.dir}/book-system.war"/>
+  </target>
+  
+  <target name="clean.artifact.javaweb:war_exploded" description="clean javaweb:war exploded artifact output">
+    <delete dir="${artifact.output.javaweb:war_exploded}"/>
+  </target>
+  
+  <target name="artifact.javaweb:war" depends="init.artifacts, artifact.javaweb:war_exploded" description="Build &#39;javaweb:war&#39; artifact">
+    <property name="artifact.temp.output.javaweb:war" value="${artifacts.temp.dir}/javaweb_war"/>
+    <mkdir dir="${artifact.temp.output.javaweb:war}"/>
+    <zip destfile="${temp.jar.path.book-system.war}">
+      <zipfileset dir="${artifact.temp.output.javaweb:war_exploded}"/>
+    </zip>
+    <copy file="${temp.jar.path.book-system.war}" tofile="${artifact.temp.output.javaweb:war}/book-system.war"/>
+  </target>
+  
+  <target name="artifact.javaweb:war_exploded" depends="init.artifacts, compile.module.javaweb" description="Build &#39;javaweb:war exploded&#39; artifact">
+    <mkdir dir="${artifact.output.javaweb:war_exploded}"/>
+    <mkdir dir="${artifact.output.javaweb:war_exploded}/WEB-INF"/>
+    <mkdir dir="${artifact.output.javaweb:war_exploded}/WEB-INF/classes"/>
+    <copy todir="${artifact.output.javaweb:war_exploded}/WEB-INF/classes">
+      <fileset dir="${javaweb.output.dir}"/>
+    </copy>
+    <mkdir dir="${artifact.output.javaweb:war_exploded}/WEB-INF/lib"/>
+    <copy file="${path.variable.maven_repository}/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar" tofile="${artifact.output.javaweb:war_exploded}/WEB-INF/lib/mysql-connector-java-8.0.18.jar"/>
+    <copy file="${path.variable.maven_repository}/com/google/protobuf/protobuf-java/3.6.1/protobuf-java-3.6.1.jar" tofile="${artifact.output.javaweb:war_exploded}/WEB-INF/lib/protobuf-java-3.6.1.jar"/>
+    <copy file="${path.variable.maven_repository}/com/alibaba/druid/1.1.21/druid-1.1.21.jar" tofile="${artifact.output.javaweb:war_exploded}/WEB-INF/lib/druid-1.1.21.jar"/>
+    <copy file="${path.variable.maven_repository}/javax/servlet/jsp/jstl/jstl/1.2/jstl-1.2.jar" tofile="${artifact.output.javaweb:war_exploded}/WEB-INF/lib/jstl-1.2.jar"/>
+    <mkdir dir="${artifact.output.javaweb:war_exploded}/META-INF"/>
+    <copy file="${basedir}/target/book-system/META-INF/MANIFEST.MF" tofile="${artifact.output.javaweb:war_exploded}/META-INF/MANIFEST.MF"/>
+    <copy todir="${artifact.output.javaweb:war_exploded}">
+      <fileset dir="${basedir}/src/main/webapp"/>
+    </copy>
+  </target>
+  
+  <target name="build.all.artifacts" depends="artifact.javaweb:war, artifact.javaweb:war_exploded" description="Build all artifacts">
+    <mkdir dir="${artifact.output.javaweb:war}"/>
+    <copy todir="${artifact.output.javaweb:war}">
+      <fileset dir="${artifact.temp.output.javaweb:war}"/>
+    </copy>
+    
+    <!-- Delete temporary files -->
+    <delete dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="all" depends="build.modules, build.all.artifacts" description="build all"/>
+</project>

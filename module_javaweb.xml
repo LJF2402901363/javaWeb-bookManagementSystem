@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_javaweb" default="compile.module.javaweb">
+  <dirname property="module.javaweb.basedir" file="${ant.file.module_javaweb}"/>
+  
+  <property name="module.jdk.home.javaweb" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.javaweb" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.javaweb" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.javaweb" value="-encoding UTF-8 -source 7 -target 1.7 ${compiler.args}"/>
+  
+  <property name="javaweb.output.dir" value="${module.javaweb.basedir}/target/classes"/>
+  <property name="javaweb.testoutput.dir" value="${module.javaweb.basedir}/target/test-classes"/>
+  
+  <path id="javaweb.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="javaweb.module.production.classpath">
+    <path refid="${module.jdk.classpath.javaweb}"/>
+    <path refid="library.java_ee_6-java_ee_6.classpath"/>
+    <path refid="library.maven:_mysql:mysql-connector-java:8.0.18.classpath"/>
+    <path refid="library.maven:_com.google.protobuf:protobuf-java:3.6.1.classpath"/>
+    <path refid="library.maven:_com.alibaba:druid:1.1.21.classpath"/>
+    <path refid="library.maven:_javax:javaee-api:8.0.1.classpath"/>
+    <path refid="library.maven:_com.sun.mail:javax.mail:1.6.2.classpath"/>
+    <path refid="library.maven:_javax.activation:activation:1.1.classpath"/>
+    <path refid="library.maven:_javax.servlet.jsp.jstl:jstl:1.2.classpath"/>
+  </path>
+  
+  <path id="javaweb.runtime.production.module.classpath">
+    <pathelement location="${javaweb.output.dir}"/>
+    <path refid="library.java_ee_6-java_ee_6.classpath"/>
+    <path refid="library.maven:_mysql:mysql-connector-java:8.0.18.classpath"/>
+    <path refid="library.maven:_com.google.protobuf:protobuf-java:3.6.1.classpath"/>
+    <path refid="library.maven:_com.alibaba:druid:1.1.21.classpath"/>
+    <path refid="library.maven:_javax.servlet.jsp.jstl:jstl:1.2.classpath"/>
+  </path>
+  
+  <path id="javaweb.module.classpath">
+    <path refid="${module.jdk.classpath.javaweb}"/>
+    <pathelement location="${javaweb.output.dir}"/>
+    <path refid="library.java_ee_6-java_ee_6.classpath"/>
+    <path refid="library.maven:_junit:junit:4.13.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+    <path refid="library.maven:_mysql:mysql-connector-java:8.0.18.classpath"/>
+    <path refid="library.maven:_com.google.protobuf:protobuf-java:3.6.1.classpath"/>
+    <path refid="library.maven:_com.alibaba:druid:1.1.21.classpath"/>
+    <path refid="library.maven:_javax:javaee-api:8.0.1.classpath"/>
+    <path refid="library.maven:_com.sun.mail:javax.mail:1.6.2.classpath"/>
+    <path refid="library.maven:_javax.activation:activation:1.1.classpath"/>
+    <path refid="library.maven:_javax.servlet.jsp.jstl:jstl:1.2.classpath"/>
+  </path>
+  
+  <path id="javaweb.runtime.module.classpath">
+    <pathelement location="${javaweb.testoutput.dir}"/>
+    <pathelement location="${javaweb.output.dir}"/>
+    <path refid="library.java_ee_6-java_ee_6.classpath"/>
+    <path refid="library.maven:_junit:junit:4.13.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+    <path refid="library.maven:_mysql:mysql-connector-java:8.0.18.classpath"/>
+    <path refid="library.maven:_com.google.protobuf:protobuf-java:3.6.1.classpath"/>
+    <path refid="library.maven:_com.alibaba:druid:1.1.21.classpath"/>
+    <path refid="library.maven:_javax:javaee-api:8.0.1.classpath"/>
+    <path refid="library.maven:_com.sun.mail:javax.mail:1.6.2.classpath"/>
+    <path refid="library.maven:_javax.activation:activation:1.1.classpath"/>
+    <path refid="library.maven:_javax.servlet.jsp.jstl:jstl:1.2.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.javaweb">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.javaweb">
+    <patternset refid="excluded.from.module.javaweb"/>
+  </patternset>
+  
+  <path id="javaweb.module.sourcepath">
+    <dirset dir="${module.javaweb.basedir}">
+      <include name="src/main/java"/>
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  <path id="javaweb.module.test.sourcepath">
+    <dirset dir="${module.javaweb.basedir}">
+      <include name="src/test/java"/>
+      <include name="src/test/resources"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.javaweb" depends="compile.module.javaweb.production,compile.module.javaweb.tests" description="Compile module javaweb"/>
+  
+  <target name="compile.module.javaweb.production" depends="register.custom.compilers" description="Compile module javaweb; production classes">
+    <mkdir dir="${javaweb.output.dir}"/>
+    <javac2 destdir="${javaweb.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.javaweb}/javac">
+      <compilerarg line="${compiler.args.javaweb}"/>
+      <bootclasspath refid="javaweb.module.bootclasspath"/>
+      <classpath refid="javaweb.module.production.classpath"/>
+      <src refid="javaweb.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.javaweb"/>
+    </javac2>
+    
+    <copy todir="${javaweb.output.dir}">
+      <fileset dir="${module.javaweb.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.javaweb.basedir}/src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.javaweb.tests" depends="register.custom.compilers,compile.module.javaweb.production" description="compile module javaweb; test classes" unless="skip.tests">
+    <mkdir dir="${javaweb.testoutput.dir}"/>
+    <javac2 destdir="${javaweb.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.javaweb}/javac">
+      <compilerarg line="${compiler.args.javaweb}"/>
+      <bootclasspath refid="javaweb.module.bootclasspath"/>
+      <classpath refid="javaweb.module.classpath"/>
+      <src refid="javaweb.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.javaweb"/>
+    </javac2>
+    
+    <copy todir="${javaweb.testoutput.dir}">
+      <fileset dir="${module.javaweb.basedir}/src/test/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.javaweb.basedir}/src/test/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.javaweb" description="cleanup module">
+    <delete dir="${javaweb.output.dir}"/>
+    <delete dir="${javaweb.testoutput.dir}"/>
+  </target>
+</project>
