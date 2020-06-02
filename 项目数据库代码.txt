@@ -1,0 +1,43 @@
+CREATE TABLE `account` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id主键，自增',
+  `name` varchar(32) DEFAULT NULL,
+  `password` varchar(50) NOT NULL COMMENT '密码',
+  `createTime` datetime DEFAULT CURRENT_TIMESTAMP,
+  `status` int(11) DEFAULT '0',
+  `type` int(11) DEFAULT NULL,
+  `sex` varchar(4) DEFAULT NULL,
+  `hobby` varchar(128) DEFAULT NULL,
+  `signature` varchar(128) DEFAULT NULL,
+  `age` int(4) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8 COMMENT='用户表';
+
+
+
+
+CREATE TABLE `book` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id主键，自增',
+  `name` varchar(50) NOT NULL COMMENT '书名',
+  `author` varchar(50) NOT NULL COMMENT '作者',
+  `price` double NOT NULL COMMENT '价格',
+  `type` varchar(10) DEFAULT NULL,
+  `status` int(11) DEFAULT '0',
+  `description` varchar(128) DEFAULT NULL,
+  `sbn` varchar(32) DEFAULT NULL,
+  `createTime` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8 COMMENT='书籍表';
+
+
+
+CREATE TABLE `borrowbook` (
+  `accountid` int(11) DEFAULT NULL,
+  `bookid` int(11) DEFAULT NULL,
+  `borrowtime` datetime DEFAULT NULL,
+  `returntime` datetime DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+
+
