@@ -7,4 +7,8 @@ This is a collection of JavaSe,jsp,Servlet,mysql,JDBC,Boostrap,JSON,ajax and jqu
 
 2.打开文件“项目数据库代码.txt”复制里面的建表sql语句进行建表。
 
+3.该项目测试的环境：idea2019,mysql8,tomcat8,数据库客户端Navicat。该项目为一个普通的JavaWEb项目，在eclipse和idea中都可以运行，只要导入项目正确就可以了。
+
+
+
 
