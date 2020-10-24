@@ -4,6 +4,6 @@
 <title>bookSystem</title>
 </head>
 <body>
-<h2>欢迎您的到来！</h2>
+ <jsp:forward page="booksystem.jsp"></jsp:forward>
 </body>
 </html>

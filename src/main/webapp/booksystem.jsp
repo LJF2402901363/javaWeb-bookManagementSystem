@@ -36,23 +36,6 @@
                 <a class="navbar-brand" href="#" style="color: #01AAED;">图书管理用户主页面</a>
             </div>
             <div>
-<%--                <!--向右对齐-->--%>
-<%--                <ul class="nav navbar-nav navbar-right">--%>
-<%--                    <li class="dropdown">--%>
-<%--                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">--%>
-<%--                            我的账户 <b class="caret"></b>--%>
-<%--                        </a>--%>
-<%--                        <ul class="dropdown-menu">--%>
-<%--                            <li><a href="#">个人信息</a></li>--%>
-<%--                            <li><a href="#">设置</a></li>--%>
-<%--                            <li><a href="#">我的借阅记录</a></li>--%>
-<%--                            <li class="divider"></li>--%>
-<%--                            <li><a href="#">分离的链接</a></li>--%>
-<%--                            <li class="divider"></li>--%>
-<%--                            <li><a href="#">另一个分离的链接</a></li>--%>
-<%--                        </ul>--%>
-<%--                    </li>--%>
-<%--                </ul>--%>
                 <form class="navbar-form navbar-right" role="search">
                     <div class="input-group">
             <span class="input-group-addon">
@@ -92,8 +75,7 @@
             <table id="booktable"></table>
         </div>
         <div class="tab-pane fade" id="ios">
-            <p>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple
-                TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。</p>
+            <p>图书相关</p>
         </div>
     </div>
 </div>

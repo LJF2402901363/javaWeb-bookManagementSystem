@@ -23,6 +23,7 @@ import java.util.Map;
 @WebServlet("/updateBookServlet")
 public class UpdateBookServlet extends HttpServlet {
     BookService bookService = new BookServiceImpl();
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     //设置编码
         request.setCharacterEncoding("utf-8");
@@ -66,6 +67,7 @@ public class UpdateBookServlet extends HttpServlet {
        }
     }
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         this.doPost(request, response);
     }
