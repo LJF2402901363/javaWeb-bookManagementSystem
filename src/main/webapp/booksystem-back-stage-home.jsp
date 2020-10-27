@@ -872,7 +872,7 @@ $(function () {
     });
     $('#addnewbook').click(function () {
         BootstrapDialog.confirm({
-            size:BootstrapDialog.SIZE_SMALL,
+            size:BootstrapDialog.SIZE_SMALL,ei
             title: '提示框',
             message: '确认添加?',
             type: BootstrapDialog.TYPE_WARNING, // <-- Default value is BootstrapDialog.TYPE_PRIMARY
