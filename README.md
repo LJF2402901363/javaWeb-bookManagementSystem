@@ -13,6 +13,6 @@ This is a collection of JavaSe,jsp,Servlet,mysql,JDBC,Boostrap,JSON,ajax and jqu
 
 3.该项目测试的环境：idea2019,mysql8,tomcat8,数据库客户端Navicat。该项目为一个普通的JavaWEb项目，在eclipse和idea中都可以运行，只要导入项目正确就可以了。
 
-
+4.用户类型在实例类 Account.java里有哦，和数据库中account这个表的Type对应。游客，普通用户，管理员是不同的。
 
 
