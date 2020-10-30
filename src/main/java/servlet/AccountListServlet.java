@@ -77,6 +77,12 @@ public class AccountListServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         this.doPost(request, response);
     }
+    /**
+     * @Description :将pageBean手动转化为json字符串
+     * @Date 20:08 2020/10/30 0030
+     * @Param * @param pageBean ：需要转换的pageBean
+     * @return java.lang.String
+     **/
     private static String  pageBeanToJsonStr(PageBean<Account> pageBean){
         StringBuilder sb=new StringBuilder("{");
         sb.append("\"total\":").append(pageBean.getTotal()+",");
@@ -84,6 +90,8 @@ public class AccountListServlet extends HttpServlet {
         List<Account> bookList=pageBean.getList();
         if (bookList==null||bookList.size()==0){
             //数据为空
+            sb.append("]}");
+            return sb.toString();
         }else {
             //数据不为空
             Account account = null;
@@ -98,7 +106,7 @@ public class AccountListServlet extends HttpServlet {
                 sb.append("\"name\":").append("\""+account.getName()+"\"").append(",");
                 sb.append("\"password\":").append("\""+account.getPassword()+"\"").append(",");
                 String dateToStr = DateUtil.DateToStr(account.getCreateTime());
-                System.out.println(dateToStr);
+//                System.out.println(dateToStr);
                 sb.append("\"createTime\":").append("\""+dateToStr+"\"").append(",");
                 sb.append("\"status\":").append("\""+account.getStatus()+"\"").append(",");
                 sb.append("\"type\":").append(account.getType()).append(",");

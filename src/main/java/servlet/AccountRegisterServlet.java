@@ -26,7 +26,6 @@ public class AccountRegisterServlet extends HttpServlet {
         response.setContentType("text/html;utf-8");
         //获取用户输入的验证码
         String login_checkcode = (String) request.getParameter("checkcode");
-
         //获取用户名和密码
         String name= (String) request.getParameter("name");
         String password= (String) request.getParameter("password");

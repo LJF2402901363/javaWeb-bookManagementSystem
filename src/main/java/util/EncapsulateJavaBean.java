@@ -1,12 +1,8 @@
 package util;
 
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.sql.Date;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Map;
 
@@ -19,9 +15,9 @@ public class EncapsulateJavaBean {
     /**
      * @Description :通过结果集的resultset数据来封装对应的实体类对象，并且返回一个对象的集合
      * @Date 21:06 2020/1/31 0031
-     * @Param * @param collection
-     * @param objClass
-     * @param resultSet ：
+     * @Param * @param collection 封装好实体类后的集合对象
+     * @param objClass 要封装的实体类字节没对象
+     * @param resultSet ：查询的结果集
      * @return void
      **/
     public static<T> void  encapsulateJavaBean(Collection<T> collection, Class<T> objClass, ResultSet resultSet){
@@ -89,10 +85,9 @@ public class EncapsulateJavaBean {
     /**
      * @Description :通过键值对的paramMap来封装对应的实体类对象，并且该对象
      * @Date 21:06 2020/1/31 0031
-     * @Param * @param collection
-     * @param objClass
-     * @param paramMap ：
-     * @return void
+     * @param objClass ： 需要封装的实体类对象字节码
+     * @param paramMap ：存放需要封装实体类属性和对应值的map
+     * @return T
      **/
     public static<T> T  encapsulateJavaBean( Class<T> objClass, Map<String,String> paramMap){
         if (paramMap==null||paramMap.size()==0||objClass==null) return  null;
