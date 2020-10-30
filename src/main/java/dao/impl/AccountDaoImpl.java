@@ -2,7 +2,6 @@ package dao.impl;
 import dao.AccountDao;
 import dao.ResultSetHandler;
 import domain.Account;
-import domain.Book;
 import domain.PageBean;
 import util.ConfigContant;
 import util.EncapsulateJavaBean;

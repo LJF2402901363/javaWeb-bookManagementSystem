@@ -26,7 +26,7 @@ public class JdbcUtil {
 
   }
   /**
-   * @Description : 获取druid数据库连接池
+   * @Description : 获取druid数据库连接池的DataSource对象
    * @Date 20:04 2020/10/30 0030
    * @Param * @param  ：
    * @return javax.sql.DataSource
@@ -39,6 +39,12 @@ public class JdbcUtil {
       }
    return dataSource;
   }
+  /**
+   * @Description :获取druid数据库连接池的Connection
+   * @Date 20:17 2020/10/30 0030
+   * @Param * @param  ：
+   * @return java.sql.Connection
+   **/
 public static  Connection getConnection(){
     Connection connection = null;
     try {
