@@ -24,6 +24,7 @@ public class EncapsulateJavaBean {
         if (collection==null) return;
         Constructor<T> constructor =null;
         try {
+            //获取字节码的构造器
             constructor = objClass.getConstructor();
         } catch (NoSuchMethodException e) {
             e.printStackTrace();

@@ -1,5 +1,4 @@
 package dao.impl;
-
 import dao.BookDao;
 import dao.ResultSetHandler;
 import domain.Book;
@@ -7,7 +6,6 @@ import domain.PageBean;
 import util.ConfigContant;
 import util.EncapsulateJavaBean;
 import util.JdbcUtil;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;

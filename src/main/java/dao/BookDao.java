@@ -1,14 +1,9 @@
 package dao;
-/**
- * @TODO:
- * @author: 陌意随影
- * @date: 2020-01-31 17:34
- */
+
 
 
 import domain.Book;
 import domain.PageBean;
-
 import java.util.Map;
 
 /**
@@ -38,7 +33,7 @@ public interface BookDao extends DAO<Book> {
     /**
      * @Description : 通过数据的起始位置，页面大小，搜索的条件，排序的名称以及排序方式来进行获得排序的对象
      * @Date 18:59 2020/2/2 0002
-     * @Param * @param offset
+     * @Param * @param offset 数据的起始位置
      * @param pageSize   页面的大小
      * @param fuzzySearchContent  模糊搜索的内容
      * @param tableSortName  排序的列名
