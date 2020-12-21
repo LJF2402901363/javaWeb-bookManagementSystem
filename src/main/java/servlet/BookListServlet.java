@@ -1,11 +1,9 @@
 package servlet;
-
 import domain.Book;
 import domain.PageBean;
 import service.BookService;
 import service.impl.BookServiceImpl;
 import util.DateUtil;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,7 +13,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 /**
  * @TODO:通过查询条件获取相应账户的servlet
  * @author: 陌意随影

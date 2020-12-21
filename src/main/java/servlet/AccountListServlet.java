@@ -1,11 +1,9 @@
 package servlet;
-
 import domain.Account;
 import domain.PageBean;
 import service.AccountService;
 import service.impl.AaccountServiceImpl;
 import util.DateUtil;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,7 +13,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 /**
  * @TODO:用户信息展示的servlet
  * @author: 陌意随影
