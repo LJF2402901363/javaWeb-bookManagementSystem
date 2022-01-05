@@ -19,6 +19,8 @@ public class Account implements Serializable {
     public final static int STATUS_NORMAL=1;
     /**状态异常*/
     public final static int STATUS_ERRO=0;
+      //角色类型
+    private  int type;
     /**游客*/
     public final static int TYPE_TOURIST=1;
     /**普通用户*/
@@ -37,14 +39,6 @@ public class Account implements Serializable {
     private Date createTime;
     //状态
     private int status;
-    //角色类型
-    private  int type;
-    /**游客*/
-    public final int TYPE_ORDINARY_TOURIST=0;
-    /**普通用户*/
-    public final int TYPE_ORDINARY_USER=1;
-    /**管理员*/
-    public final int TYPE_ORDINARY_ADMINISTRATOR=2;
     //爱好
     private String hobby;
     //签名
